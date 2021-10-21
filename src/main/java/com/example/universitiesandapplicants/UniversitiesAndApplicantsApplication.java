@@ -1,11 +1,15 @@
 package com.example.universitiesandapplicants;
 
+import com.example.universitiesandapplicants.Model.*;
+import com.example.universitiesandapplicants.Repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @SpringBootApplication
 public class UniversitiesAndApplicantsApplication {
@@ -15,19 +19,58 @@ public class UniversitiesAndApplicantsApplication {
     }
 
     @Bean
-    CommandLineRunner runner(StudentRepository repository) {
+    CommandLineRunner runner(EnrolleeRepository enrolleeRepository, EGEresultsRepository egeresultsRepository,
+                             EmployeeRepository employeeRepository, ContactRepository contactRepository,
+                             UniversityRepository universityRepository) {
         return args -> {
-            Student student = new Student(
+            EGEresults egeresults = new EGEresults("russian", 96);
+
+            Enrollee enrollee = new Enrollee(
+                    "email@example.com",
                     "Ivan",
                     "Shishkin",
-                    "ivanshishh@gmail.com",
-                    Gender.MALE,
-                    LocalDateTime.now()
+                    "Viktorovich",
+                    "password",
+                    new Date(),
+                    "gimnasiya",
+                    "SPB",
+                    new ArrayList<>(List.of(egeresults)),
+                    new ArrayList<>(List.of("GTO"))
             );
 
-            repository.save(student);
+            Contact contacts = new Contact(
+                    "some_email@mail.com",
+                    "+7-932-123-43-23"
+            );
 
-            System.out.println(repository.findById(student.getId()).get());
+
+            University university = new University(
+                    "LETI",
+                    "SPB",
+                    contacts
+            );
+
+            contactRepository.save(contacts);
+
+            universityRepository.save(university);
+
+            Employee employee = new Employee(
+                    "some_email@email.com",
+                    "Vladislav",
+                    "Vladislavov",
+                    "Vladislavovich",
+                    "pass",
+                    new Date(),
+                    university.getId()
+            );
+
+            employeeRepository.save(employee);
+
+            egeresultsRepository.save(egeresults);
+
+            enrolleeRepository.save(enrollee);
+
+            System.out.println(employeeRepository.findById(employee.getId()).get());
         };
     }
 

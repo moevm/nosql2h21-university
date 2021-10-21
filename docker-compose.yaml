@@ -10,6 +10,8 @@ services:
         environment:
             - MONGO_INITDB_ROOT_USERNAME=rootuser
             - MONGO_INITDB_ROOT_PASSWORD=rootpass
+        command:
+            -   mongod
     mongo-express:
         image: mongo-express
         container_name: mongo-express
