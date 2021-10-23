@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +23,6 @@ public class UniversitiesAndApplicantsApplication {
                              EmployeeRepository employeeRepository, ContactRepository contactRepository,
                              UniversityRepository universityRepository) {
         return args -> {
-            EGEresults egeresults = new EGEresults("russian", 96);
 
             Enrollee enrollee = new Enrollee(
                     "email@example.com",
@@ -34,8 +33,8 @@ public class UniversitiesAndApplicantsApplication {
                     new Date(),
                     "gimnasiya",
                     "SPB",
-                    new ArrayList<>(List.of(egeresults)),
-                    new ArrayList<>(List.of("GTO"))
+                    Arrays.asList(new EGEresults("rus", 30), new EGEresults("math", 50)),
+                    List.of("GTO")
             );
 
             Contact contacts = new Contact(
@@ -50,7 +49,6 @@ public class UniversitiesAndApplicantsApplication {
                     contacts
             );
 
-            contactRepository.save(contacts);
 
             universityRepository.save(university);
 
@@ -66,11 +64,6 @@ public class UniversitiesAndApplicantsApplication {
 
             employeeRepository.save(employee);
 
-            egeresultsRepository.save(egeresults);
-
-            enrolleeRepository.save(enrollee);
-
-            System.out.println(employeeRepository.findById(employee.getId()).get());
         };
     }
 
