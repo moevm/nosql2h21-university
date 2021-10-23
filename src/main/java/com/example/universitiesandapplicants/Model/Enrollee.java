@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString
-@Document(collection = "enrolles")
+@Document(collection = "enrollees")
 public class Enrollee {
 
     @Id
@@ -38,7 +38,7 @@ public class Enrollee {
 
     private String city;
 
-    @DBRef
+//    @DBRef
     private List<EGEresults> egeResults;
 
     private List<String> individualAchievements;

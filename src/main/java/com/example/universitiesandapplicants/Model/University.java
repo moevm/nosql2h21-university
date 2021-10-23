@@ -1,12 +1,10 @@
 package com.example.universitiesandapplicants.Model;
 
-import com.example.universitiesandapplicants.Model.Contact;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
@@ -23,9 +21,7 @@ public class University {
 
     private String city;
 
-    @DBRef
     private Contact contacts;
-
 
     public University(String name, String city, Contact contacts) {
         this.name = name;

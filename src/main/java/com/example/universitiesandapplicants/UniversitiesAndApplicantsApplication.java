@@ -1,7 +1,9 @@
 package com.example.universitiesandapplicants;
 
 import com.example.universitiesandapplicants.Model.*;
-import com.example.universitiesandapplicants.Repository.*;
+import com.example.universitiesandapplicants.Repository.EmployeeRepository;
+import com.example.universitiesandapplicants.Repository.EnrolleeRepository;
+import com.example.universitiesandapplicants.Repository.UniversityRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,8 +21,8 @@ public class UniversitiesAndApplicantsApplication {
     }
 
     @Bean
-    CommandLineRunner runner(EnrolleeRepository enrolleeRepository, EGEresultsRepository egeresultsRepository,
-                             EmployeeRepository employeeRepository, ContactRepository contactRepository,
+    CommandLineRunner runner(EnrolleeRepository enrolleeRepository,
+                             EmployeeRepository employeeRepository,
                              UniversityRepository universityRepository) {
         return args -> {
 
@@ -37,16 +39,12 @@ public class UniversitiesAndApplicantsApplication {
                     List.of("GTO")
             );
 
-            Contact contacts = new Contact(
-                    "some_email@mail.com",
-                    "+7-932-123-43-23"
-            );
-
+            enrolleeRepository.save(enrollee);
 
             University university = new University(
                     "LETI",
                     "SPB",
-                    contacts
+                    new Contact("some_email@mail.com", "+7-932-123-43-23")
             );
 
 
