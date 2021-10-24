@@ -46,7 +46,11 @@ public class UniversitiesAndApplicantsApplication {
             University university = new University(
                     "LETI",
                     "SPB",
-                    new Contact("some_email@mail.com", "+7-932-123-43-23")
+                    "some_email@mail.com",
+                    "+7-932-123-43-23",
+                    "We are the best! (no)",
+                    List.of("Первый факультет", "Второй"),
+                    List.of("Первое направление", "Второе")
             );
 
 
