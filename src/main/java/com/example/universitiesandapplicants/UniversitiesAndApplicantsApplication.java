@@ -3,6 +3,7 @@ package com.example.universitiesandapplicants;
 import com.example.universitiesandapplicants.Model.*;
 import com.example.universitiesandapplicants.Repository.EmployeeRepository;
 import com.example.universitiesandapplicants.Repository.EnrolleeRepository;
+import com.example.universitiesandapplicants.Repository.StatementRepository;
 import com.example.universitiesandapplicants.Repository.UniversityRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,7 +24,8 @@ public class UniversitiesAndApplicantsApplication {
     @Bean
     CommandLineRunner runner(EnrolleeRepository enrolleeRepository,
                              EmployeeRepository employeeRepository,
-                             UniversityRepository universityRepository) {
+                             UniversityRepository universityRepository,
+                             StatementRepository statementRepository) {
         return args -> {
 
             Enrollee enrollee = new Enrollee(
@@ -44,7 +46,11 @@ public class UniversitiesAndApplicantsApplication {
             University university = new University(
                     "LETI",
                     "SPB",
-                    new Contact("some_email@mail.com", "+7-932-123-43-23")
+                    "some_email@mail.com",
+                    "+7-932-123-43-23",
+                    "We are the best! (no)",
+                    List.of("Первый факультет", "Второй"),
+                    List.of("Первое направление", "Второе")
             );
 
 
@@ -61,6 +67,17 @@ public class UniversitiesAndApplicantsApplication {
             );
 
             employeeRepository.save(employee);
+
+            Statement statement = new Statement(
+                     "formOfEducation",
+                    "agreement",
+                    "directionOfStudy",
+                    enrollee.getId(),
+                    university.getId()
+            );
+
+            statementRepository.save(statement);
+
 
         };
     }
