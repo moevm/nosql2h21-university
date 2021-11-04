@@ -1,6 +1,6 @@
-package com.example.universitiesandapplicants.Repository;
+package com.example.universitiesandapplicants.repository;
 
-import com.example.universitiesandapplicants.Model.Employee;
+import com.example.universitiesandapplicants.entity.Employee;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

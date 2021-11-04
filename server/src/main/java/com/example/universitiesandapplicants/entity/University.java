@@ -1,4 +1,4 @@
-package com.example.universitiesandapplicants.Model;
+package com.example.universitiesandapplicants.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,16 +32,4 @@ public class University {
     private List<String> faculties;
 
     private List<String> directionsOfStudy;
-
-    public University(String name, String city, String email, String phone, String description, List<String> faculties,
-                      List<String> directionsOfStudy) {
-
-        this.name = name;
-        this.city = city;
-        this.email = email;
-        this.phone = phone;
-        this.description = description;
-        this.faculties = faculties;
-        this.directionsOfStudy = directionsOfStudy;
-    }
 }

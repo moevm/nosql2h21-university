@@ -1,4 +1,4 @@
-package com.example.universitiesandapplicants.Model;
+package com.example.universitiesandapplicants.entity;
 
 import lombok.Data;
 

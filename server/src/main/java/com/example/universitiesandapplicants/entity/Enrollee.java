@@ -1,4 +1,4 @@
-package com.example.universitiesandapplicants.Model;
+package com.example.universitiesandapplicants.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +38,6 @@ public class Enrollee {
 
     private String city;
 
-//    @DBRef
     private List<EGEresults> egeResults;
 
     private List<String> individualAchievements;
