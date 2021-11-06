@@ -1,9 +1,6 @@
 package com.example.universitiesandapplicants.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
+@Builder
 @Document(collection = "enrollees")
 public class Enrollee {
 
@@ -42,27 +40,10 @@ public class Enrollee {
 
     private List<String> individualAchievements;
 
-    public Enrollee(String email, String firstName, String lastName, String patronymic, String password, Date DOB, String school, String city) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.patronymic = patronymic;
-        this.password = password;
-        this.DOB = DOB;
-        this.school = school;
-        this.city = city;
+    private Integer sumOfEgeResults;
+
+    public void countSumOfEgeResults() {
+        this.setSumOfEgeResults(egeResults.stream().map(EGEresults::getScore).reduce(0, Integer::sum));
     }
 
-    public Enrollee(String email, String firstName, String lastName, String patronymic, String password, Date DOB, String school, String city, List<EGEresults> egeresults, List<String> individualAchievements) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.patronymic = patronymic;
-        this.password = password;
-        this.DOB = DOB;
-        this.school = school;
-        this.city = city;
-        this.egeResults = egeresults;
-        this.individualAchievements = individualAchievements;
-    }
 }

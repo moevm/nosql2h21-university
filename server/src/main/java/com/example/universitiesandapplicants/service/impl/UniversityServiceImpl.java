@@ -1,9 +1,11 @@
-package com.example.universitiesandapplicants.service;
+package com.example.universitiesandapplicants.service.impl;
 
 import com.example.universitiesandapplicants.entity.University;
+import com.example.universitiesandapplicants.model.request.UniversityFilterRequest;
 import com.example.universitiesandapplicants.model.request.UniversityRequestModel;
 import com.example.universitiesandapplicants.model.respose.UniversityResponseModel;
 import com.example.universitiesandapplicants.repository.UniversityRepository;
+import com.example.universitiesandapplicants.service.UniversityService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,4 +38,5 @@ public class UniversityServiceImpl implements UniversityService {
 
         repository.save(university);
     }
+
 }

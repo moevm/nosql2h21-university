@@ -1,5 +1,6 @@
 package com.example.universitiesandapplicants.service;
 
+import com.example.universitiesandapplicants.model.request.UniversityFilterRequest;
 import com.example.universitiesandapplicants.model.request.UniversityRequestModel;
 import com.example.universitiesandapplicants.model.respose.UniversityResponseModel;
 

@@ -1,9 +1,6 @@
 package com.example.universitiesandapplicants.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,7 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
+@Builder
 @Document(collection = "universities")
 public class University {
 
@@ -32,4 +30,5 @@ public class University {
     private List<String> faculties;
 
     private List<String> directionsOfStudy;
+
 }

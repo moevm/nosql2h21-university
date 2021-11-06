@@ -1,15 +1,16 @@
-package com.example.universitiesandapplicants.service;
+package com.example.universitiesandapplicants.service.impl;
 
-import com.example.universitiesandapplicants.entity.Employee;
 import com.example.universitiesandapplicants.entity.Statement;
-import com.example.universitiesandapplicants.entity.University;
 import com.example.universitiesandapplicants.model.request.StatementRequestModel;
+import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
 import com.example.universitiesandapplicants.model.respose.StatementResponseModel;
-import com.example.universitiesandapplicants.model.respose.UniversityResponseModel;
 import com.example.universitiesandapplicants.repository.StatementRepository;
+import com.example.universitiesandapplicants.service.StatementService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;

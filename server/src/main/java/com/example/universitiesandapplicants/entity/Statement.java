@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
 @Document(collection = "statements")
 public class Statement {
 
