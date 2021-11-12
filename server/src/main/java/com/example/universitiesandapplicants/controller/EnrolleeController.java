@@ -1,8 +1,11 @@
 package com.example.universitiesandapplicants.controller;
 
+import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityStatisticsRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
+import com.example.universitiesandapplicants.model.respose.EnrolleeByUniversityResponseModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
+import com.example.universitiesandapplicants.model.respose.EnrolleeStatisticsResponseModel;
 import com.example.universitiesandapplicants.service.EnrolleeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,5 +47,16 @@ public class EnrolleeController {
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public List<EnrolleeResponseModel> getEnrolleesByFilter(@RequestBody EnrolleeFilterRequest filterRequest) {
         return enrolleeService.getEnrolleesByFilter(filterRequest);
+    }
+
+    @GetMapping(path = "/by-university/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversity(@PathVariable String id) {
+        return enrolleeService.getEnrolleesByUniversity(id);
+    }
+
+    @PostMapping(path = "/by-university/{id}/statistics", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public EnrolleeStatisticsResponseModel getStatistics(@PathVariable String id, @RequestBody EnrolleeByUniversityStatisticsRequest req) {
+        return enrolleeService.getStatistics(id, req);
     }
 }

@@ -10,4 +10,7 @@ public interface StatementRepository extends MongoRepository<Statement, String> 
     List<Statement> findAllByEnrolleeId(String enrolleeId);
     Statement findByEnrolleeIdAndUniversityId(String enrolleeId, String universityId);
     List<Statement> findAllByUniversityId(String universityId);
+
+    @Query("{ 'directionOfStudy': {'$regex': ?0} }")
+    List<Statement> findAllByDirection(String direction);
 }

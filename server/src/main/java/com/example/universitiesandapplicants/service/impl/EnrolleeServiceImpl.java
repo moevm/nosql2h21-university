@@ -1,11 +1,19 @@
 package com.example.universitiesandapplicants.service.impl;
 
 import com.example.universitiesandapplicants.entity.Enrollee;
+import com.example.universitiesandapplicants.entity.Statement;
+import com.example.universitiesandapplicants.entity.University;
+import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityStatisticsRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
+import com.example.universitiesandapplicants.model.respose.EnrolleeByUniversityResponseModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
+import com.example.universitiesandapplicants.model.respose.EnrolleeStatisticsResponseModel;
 import com.example.universitiesandapplicants.repository.EnrolleeRepository;
+import com.example.universitiesandapplicants.repository.StatementRepository;
+import com.example.universitiesandapplicants.repository.UniversityRepository;
 import com.example.universitiesandapplicants.service.EnrolleeService;
+import com.mongodb.client.DistinctIterable;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -13,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +33,12 @@ public class EnrolleeServiceImpl implements EnrolleeService {
 
     @Autowired
     MongoTemplate mongoTemplate;
+
+    @Autowired
+    StatementRepository statementRepository;
+
+    @Autowired
+    UniversityRepository universityRepository;
 
     @Override
     public List<EnrolleeResponseModel> getEnrollees() {
@@ -87,5 +102,69 @@ public class EnrolleeServiceImpl implements EnrolleeService {
                 .stream()
                 .map(enrollee -> new ModelMapper().map(enrollee, EnrolleeResponseModel.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversity(String universityId) {
+        List<String> enrolleesInUniversityId = statementRepository.findAllByUniversityId(universityId)
+                .stream()
+                .map(Statement::getEnrolleeId)
+                .collect(Collectors.toList());
+
+        List<EnrolleeByUniversityResponseModel> returnValue = new ArrayList<>();
+
+        for (String enrolleeId : enrolleesInUniversityId) {
+            Enrollee enrollee = repository.findById(enrolleeId)
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                            "Enrollee in statemetns with ID: " + enrolleeId + " not found"));
+            Statement statement = statementRepository.findByEnrolleeIdAndUniversityId(enrolleeId, universityId);
+
+            EnrolleeByUniversityResponseModel responseModel = new ModelMapper().map(enrollee, EnrolleeByUniversityResponseModel.class);
+            responseModel.setAgreement(statement.getAgreement());
+            responseModel.setDirectionOfStudy(statement.getDirectionOfStudy());
+            responseModel.setFormOfEducation(statement.getFormOfEducation());
+
+            returnValue.add(responseModel);
+        }
+
+        return returnValue;
+    }
+
+    @Override
+    public EnrolleeStatisticsResponseModel getStatistics(String universityId, EnrolleeByUniversityStatisticsRequest req) {
+        EnrolleeStatisticsResponseModel returnValue = new EnrolleeStatisticsResponseModel();
+
+        DistinctIterable<String> ids = mongoTemplate.getCollection("statements")
+                .distinct("universityId", String.class);
+        List<String> listIds = new ArrayList<>();
+
+        int numInYourUniversity = 0;
+
+        for (String id : ids) {
+            listIds.add(id);
+            if (id.equals(universityId)) {
+                numInYourUniversity++;
+            }
+        }
+
+        returnValue.setNumInYourUniversity(numInYourUniversity);
+        returnValue.setNumInOtherUniversities(listIds.size() - numInYourUniversity);
+        returnValue.setNumWithoutStatement(repository.findAll().size() - listIds.size());
+
+        String universityName = req.getUniversityName();
+        if (universityName != null) {
+            University university = universityRepository.findByName(universityName);
+            if (university == null) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "University with name: " + universityName + " not found");
+            }
+            returnValue.setNumInSpecifiedUniversity(statementRepository.findAllByUniversityId(university.getId()).size());
+        }
+
+        String directionName = req.getDirection();
+        if (directionName != null) {
+            returnValue.setNumInSpecifiedDirection(statementRepository.findAllByDirection(directionName).size());
+        }
+
+        return returnValue;
     }
 }
