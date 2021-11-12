@@ -42,8 +42,14 @@ public class Enrollee {
 
     private Integer sumOfEgeResults;
 
-    public void countSumOfEgeResults() {
-        this.setSumOfEgeResults(egeResults.stream().map(EGEresults::getScore).reduce(0, Integer::sum));
-    }
+    @Builder.Default
+    private Boolean isStatementExists = false;
 
+    public void countSumOfEgeResults() {
+        if (egeResults.size() == 0) {
+            sumOfEgeResults = 0;
+            return;
+        }
+        sumOfEgeResults = egeResults.stream().map(EGEresults::getScore).reduce(0, Integer::sum);
+    }
 }

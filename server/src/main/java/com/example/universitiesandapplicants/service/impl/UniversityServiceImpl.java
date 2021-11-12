@@ -39,4 +39,10 @@ public class UniversityServiceImpl implements UniversityService {
         repository.save(university);
     }
 
+    @Override
+    public List<UniversityResponseModel> getUniversitiesByFilter(UniversityFilterRequest req) {
+        return repository.findAllByFilter(req.getName(), req.getCity(), req.getDirection()).stream()
+                .map(university -> new ModelMapper().map(university, UniversityResponseModel.class))
+                .collect(Collectors.toList());
+    }
 }

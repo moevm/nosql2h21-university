@@ -1,6 +1,6 @@
 package com.example.universitiesandapplicants.controller;
 
-import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
+import com.example.universitiesandapplicants.model.request.UniversityFilterRequest;
 import com.example.universitiesandapplicants.model.request.UniversityRequestModel;
 import com.example.universitiesandapplicants.model.respose.UniversityResponseModel;
 import com.example.universitiesandapplicants.service.UniversityService;
@@ -37,5 +37,11 @@ public class UniversityController {
         universityService.updateUniversity(id, universityRequestModel);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<UniversityResponseModel> getUniversitiesByFilter(@RequestBody UniversityFilterRequest filterRequest) {
+        return universityService.getUniversitiesByFilter(filterRequest);
     }
 }

@@ -10,4 +10,5 @@ public interface EnrolleeService {
     List<EnrolleeResponseModel> getEnrollees();
     void addEnrollee(EnrolleeRequestModel enrolleeRequestModel);
     void updateEnrollee(String enrolleeId, EnrolleeRequestModel enrolleeRequestModel);
+    List<EnrolleeResponseModel> getEnrolleesByFilter(EnrolleeFilterRequest req);
 }

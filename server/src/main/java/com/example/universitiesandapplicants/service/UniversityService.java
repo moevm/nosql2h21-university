@@ -10,4 +10,5 @@ public interface UniversityService {
     void addUniversity(UniversityRequestModel universityRequestModel);
     List<UniversityResponseModel> getUniversities();
     void updateUniversity(String id, UniversityRequestModel universityRequestModel);
+    List<UniversityResponseModel> getUniversitiesByFilter(UniversityFilterRequest universityFilterRequest);
 }

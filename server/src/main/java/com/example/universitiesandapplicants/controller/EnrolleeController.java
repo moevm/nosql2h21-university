@@ -2,9 +2,7 @@ package com.example.universitiesandapplicants.controller;
 
 import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
-import com.example.universitiesandapplicants.model.request.UniversityFilterRequest;
 import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
-import com.example.universitiesandapplicants.model.respose.UniversityResponseModel;
 import com.example.universitiesandapplicants.service.EnrolleeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,5 +38,11 @@ public class EnrolleeController {
         enrolleeService.updateEnrollee(id, enrolleeRequestModel);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<EnrolleeResponseModel> getEnrolleesByFilter(@RequestBody EnrolleeFilterRequest filterRequest) {
+        return enrolleeService.getEnrolleesByFilter(filterRequest);
     }
 }

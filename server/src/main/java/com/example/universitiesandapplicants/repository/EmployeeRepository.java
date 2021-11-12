@@ -8,4 +8,8 @@ import java.util.List;
 public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
     List<Employee> findAllByUniversityId(String id);
+
+    Employee findByEmail(String email);
+
+    Boolean existsByEmail(String email);
 }
