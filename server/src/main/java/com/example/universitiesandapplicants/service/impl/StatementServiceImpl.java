@@ -21,9 +21,20 @@ public class StatementServiceImpl implements StatementService {
     @Autowired
     StatementRepository repository;
 
+    @Autowired
+    EnrolleeRepository enrolleeRepository;
+
     @Override
     public void addStatement(StatementRequestModel statementRequestModel) {
-        repository.save(new ModelMapper().map(statementRequestModel, Statement.class));
+        String enrolleeId = statementRequestModel.getEnrolleeId();
+        Enrollee enrollee = enrolleeRepository.findById(enrolleeId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Enrollee with ID: " + enrolleeId + " not found"));
+        enrollee.setIsStatementExists(true);
+        enrolleeRepository.save(enrollee);
+
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setAmbiguityIgnored(true);
+        repository.save(modelMapper.map(statementRequestModel, Statement.class));
     }
 
     @Override
@@ -39,5 +50,22 @@ public class StatementServiceImpl implements StatementService {
         statement.setId(id);
 
         repository.save(statement);
+    }
+
+    @Override
+    public List<StatementResponseModel> getStatementsByEnrolleeId(String enrolleeId) {
+        return repository.findAllByEnrolleeId(enrolleeId).stream()
+                .map(statement -> new ModelMapper().map(statement, StatementResponseModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public StatementResponseModel getStatementByEnrolleeIdAndUniversityId(String enrolleeId, String universityId) {
+        if (enrolleeId == null || universityId == null) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "EnrolleeId and UniversityId must not be null");
+        }
+
+        return new ModelMapper()
+                .map(repository.findByEnrolleeIdAndUniversityId(enrolleeId, universityId), StatementResponseModel.class);
     }
 }

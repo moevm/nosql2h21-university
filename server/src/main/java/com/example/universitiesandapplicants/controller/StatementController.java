@@ -37,4 +37,14 @@ public class StatementController {
         statementService.updateStatement(id, statementRequestModel);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping(path = "/{enrolleeId}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<StatementResponseModel> getStatementsByEnrolleeId(@PathVariable String enrolleeId) {
+        return statementService.getStatementsByEnrolleeId(enrolleeId);
+    }
+
+    @PostMapping(path = "/find", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public StatementResponseModel getStatementByEnrolleeIdAndUniversityId(@RequestBody StatementByIdRequest request) {
+        return statementService.getStatementByEnrolleeIdAndUniversityId(request.getEnrolleeId(), request.getUniversityId());
+    }
 }

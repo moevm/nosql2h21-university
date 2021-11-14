@@ -1,5 +1,6 @@
 package com.example.universitiesandapplicants.controller;
 
+import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityStatisticsRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
@@ -52,6 +53,14 @@ public class EnrolleeController {
     @GetMapping(path = "/by-university/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversity(@PathVariable String id) {
         return enrolleeService.getEnrolleesByUniversity(id);
+    }
+
+    @PostMapping(path = "/by-university/{id}/filter", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversityAndFilter(@PathVariable String id,
+                                                                                     @RequestBody EnrolleeByUniversityFilterRequest req) {
+
+        // TODO
+        return enrolleeService.getEnrolleesByUniversityAndFilter(id, req);
     }
 
     @PostMapping(path = "/by-university/{id}/statistics", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},

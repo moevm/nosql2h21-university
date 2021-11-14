@@ -7,7 +7,9 @@ import com.example.universitiesandapplicants.repository.EmployeeRepository;
 import com.example.universitiesandapplicants.service.EmployeeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,9 +20,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EmployeeRepository repository;
 
+    @Autowired
+    EnrolleeRepository enrolleeRepository;
+
     @Override
     public void addEmployee(EmployeeRequestModel employeeRequestModel) {
-        repository.save(new ModelMapper().map(employeeRequestModel, Employee.class));
+        if (repository.existsByEmail(employeeRequestModel.getEmail()) ||
+                enrolleeRepository.existsByEmail(employeeRequestModel.getEmail())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This email is already taken");
+        }
+
+        Employee employee = new ModelMapper().map(employeeRequestModel, Employee.class);
+        repository.save(employee);
     }
 
     @Override

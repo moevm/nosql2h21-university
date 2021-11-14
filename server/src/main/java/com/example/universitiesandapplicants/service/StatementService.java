@@ -12,4 +12,6 @@ public interface StatementService {
     void addStatement(StatementRequestModel statementRequestModel);
     List<StatementResponseModel> getStatements();
     void updateStatement(String id, StatementRequestModel statementRequestModel);
+    List<StatementResponseModel> getStatementsByEnrolleeId(String enrolleeId);
+    StatementResponseModel getStatementByEnrolleeIdAndUniversityId(String enrolleeId, String universityId);
 }

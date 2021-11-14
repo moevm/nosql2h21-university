@@ -32,13 +32,16 @@ public class EnrolleeServiceImpl implements EnrolleeService {
     EnrolleeRepository repository;
 
     @Autowired
-    MongoTemplate mongoTemplate;
-
-    @Autowired
     StatementRepository statementRepository;
 
     @Autowired
     UniversityRepository universityRepository;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    @Autowired
+    MongoTemplate mongoTemplate;
 
     @Override
     public List<EnrolleeResponseModel> getEnrollees() {
@@ -49,8 +52,25 @@ public class EnrolleeServiceImpl implements EnrolleeService {
 
     @Override
     public void addEnrollee(EnrolleeRequestModel enrolleeRequestModel) {
+        if (repository.existsByEmail(enrolleeRequestModel.getEmail()) ||
+                employeeRepository.existsByEmail(enrolleeRequestModel.getEmail())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This email is already taken");
+        }
+
         Enrollee enrollee = new ModelMapper().map(enrolleeRequestModel, Enrollee.class);
+        enrollee.setPassword(encoder.encode(enrollee.getPassword()));
         enrollee.countSumOfEgeResults();
+
+        DistinctIterable<String> ids = mongoTemplate.getCollection("statements")
+                .distinct("enrolleeId", String.class);
+
+        for (String id : ids) {
+            if (id.equals(enrollee.getId())) {
+                enrollee.setIsStatementExists(true);
+                break;
+            }
+        }
+
         repository.save(enrollee);
     }
 
@@ -128,6 +148,12 @@ public class EnrolleeServiceImpl implements EnrolleeService {
         }
 
         return returnValue;
+    }
+
+    @Override
+    public List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversityAndFilter(String universityId, EnrolleeByUniversityFilterRequest req) {
+        // TODO
+        return new ArrayList<>();
     }
 
     @Override

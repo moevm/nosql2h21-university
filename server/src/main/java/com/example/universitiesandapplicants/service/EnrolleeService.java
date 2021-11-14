@@ -1,5 +1,6 @@
 package com.example.universitiesandapplicants.service;
 
+import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityStatisticsRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
@@ -15,5 +16,6 @@ public interface EnrolleeService {
     void updateEnrollee(String enrolleeId, EnrolleeRequestModel enrolleeRequestModel);
     List<EnrolleeResponseModel> getEnrolleesByFilter(EnrolleeFilterRequest req);
     List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversity(String universityId);
+    List<EnrolleeByUniversityResponseModel> getEnrolleesByUniversityAndFilter(String universityId, EnrolleeByUniversityFilterRequest req);
     EnrolleeStatisticsResponseModel getStatistics(String universityId, EnrolleeByUniversityStatisticsRequest req);
 }
