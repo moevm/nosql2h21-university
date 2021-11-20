@@ -4,10 +4,12 @@ import com.example.universitiesandapplicants.entity.Employee;
 import com.example.universitiesandapplicants.model.request.EmployeeRequestModel;
 import com.example.universitiesandapplicants.model.respose.EmployeeResponseModel;
 import com.example.universitiesandapplicants.repository.EmployeeRepository;
+import com.example.universitiesandapplicants.repository.EnrolleeRepository;
 import com.example.universitiesandapplicants.service.EmployeeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -23,6 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EnrolleeRepository enrolleeRepository;
 
+    @Autowired
+    PasswordEncoder encoder;
+
     @Override
     public void addEmployee(EmployeeRequestModel employeeRequestModel) {
         if (repository.existsByEmail(employeeRequestModel.getEmail()) ||
@@ -31,6 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         Employee employee = new ModelMapper().map(employeeRequestModel, Employee.class);
+        employee.setPassword(encoder.encode(employee.getPassword()));
         repository.save(employee);
     }
 

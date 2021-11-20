@@ -32,16 +32,16 @@ public class UniversityController {
         return universityService.getUniversities();
     }
 
+    @PostMapping(path = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<UniversityResponseModel> getUniversitiesByFilter(@RequestBody UniversityFilterRequest filterRequest) {
+        return universityService.getUniversitiesByFilter(filterRequest);
+    }
+
     @PutMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<?> updateUniversity(@PathVariable String id, @RequestBody UniversityRequestModel universityRequestModel) {
         universityService.updateUniversity(id, universityRequestModel);
 
         return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @PostMapping(path = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public List<UniversityResponseModel> getUniversitiesByFilter(@RequestBody UniversityFilterRequest filterRequest) {
-        return universityService.getUniversitiesByFilter(filterRequest);
     }
 }

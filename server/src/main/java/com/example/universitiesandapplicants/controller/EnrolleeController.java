@@ -1,12 +1,10 @@
 package com.example.universitiesandapplicants.controller;
 
-import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityFilterRequest;
-import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityStatisticsRequest;
-import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
-import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
+import com.example.universitiesandapplicants.model.request.*;
 import com.example.universitiesandapplicants.model.respose.EnrolleeByUniversityResponseModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeStatisticsResponseModel;
+import com.example.universitiesandapplicants.model.respose.UniversityResponseModel;
 import com.example.universitiesandapplicants.service.EnrolleeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,17 +35,17 @@ public class EnrolleeController {
         return enrolleeService.getEnrollees();
     }
 
+    @PostMapping(path = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<EnrolleeResponseModel> getEnrolleesByFilter(@RequestBody EnrolleeFilterRequest filterRequest) {
+        return enrolleeService.getEnrolleesByFilter(filterRequest);
+    }
+
     @PutMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<?> updateEnrollee(@PathVariable String id, @RequestBody EnrolleeRequestModel enrolleeRequestModel) {
         enrolleeService.updateEnrollee(id, enrolleeRequestModel);
 
         return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @PostMapping(path = "/filter", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public List<EnrolleeResponseModel> getEnrolleesByFilter(@RequestBody EnrolleeFilterRequest filterRequest) {
-        return enrolleeService.getEnrolleesByFilter(filterRequest);
     }
 
     @GetMapping(path = "/by-university/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})

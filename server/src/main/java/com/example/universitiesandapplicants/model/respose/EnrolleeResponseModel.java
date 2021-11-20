@@ -18,4 +18,7 @@ public class EnrolleeResponseModel {
     private String school;
     private String city;
     private List<EGEresults> egeResults;
+    private List<String> individualAchievements;
+    private Integer sumOfEgeResults;
+    private Boolean isStatementExists;
 }

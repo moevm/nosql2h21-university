@@ -18,5 +18,6 @@ public class EnrolleeRequestModel {
     private String school;
     private String city;
     private List<EGEresults> egeResults;
+    private List<String> individualAchievements;
 
 }

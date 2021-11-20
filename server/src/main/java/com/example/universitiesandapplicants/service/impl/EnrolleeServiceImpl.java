@@ -3,12 +3,14 @@ package com.example.universitiesandapplicants.service.impl;
 import com.example.universitiesandapplicants.entity.Enrollee;
 import com.example.universitiesandapplicants.entity.Statement;
 import com.example.universitiesandapplicants.entity.University;
+import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeByUniversityStatisticsRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeFilterRequest;
 import com.example.universitiesandapplicants.model.request.EnrolleeRequestModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeByUniversityResponseModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeStatisticsResponseModel;
+import com.example.universitiesandapplicants.repository.EmployeeRepository;
 import com.example.universitiesandapplicants.repository.EnrolleeRepository;
 import com.example.universitiesandapplicants.repository.StatementRepository;
 import com.example.universitiesandapplicants.repository.UniversityRepository;
@@ -18,6 +20,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -42,6 +45,9 @@ public class EnrolleeServiceImpl implements EnrolleeService {
 
     @Autowired
     MongoTemplate mongoTemplate;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @Override
     public List<EnrolleeResponseModel> getEnrollees() {
@@ -193,4 +199,5 @@ public class EnrolleeServiceImpl implements EnrolleeService {
 
         return returnValue;
     }
+
 }

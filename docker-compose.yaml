@@ -24,11 +24,11 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
       - ME_CONFIG_MONGODB_SERVER=mongodb
 
-  web:
+  server:
     build:
-      context: .
+      context: ./server
       dockerfile: Dockerfile
-    container_name: nosqlappcontainer
+    container_name: nosql-server
     restart: on-failure
     depends_on:
       - mongodb
@@ -43,6 +43,14 @@ services:
       - SPRING_DATA_MONGODB_USERNAME=rootuser
       - SPRING_DATA_MONGODB_PASSWORD=rootpass
       - SPRING_DATA_MONGODB_DATABASE=universitiesnapplicants
+
+  client:
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      dockerfile: Dockerfile
+      context: ./client
 
 volumes:
   data: { }
