@@ -1,5 +1,6 @@
 package com.example.universitiesandapplicants.controller;
 
+import com.example.universitiesandapplicants.model.request.StatementByIdRequest;
 import com.example.universitiesandapplicants.model.request.StatementRequestModel;
 import com.example.universitiesandapplicants.model.respose.StatementResponseModel;
 import com.example.universitiesandapplicants.service.StatementService;

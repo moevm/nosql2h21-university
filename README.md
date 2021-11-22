@@ -1,5 +1,10 @@
 # nosql2h21-university
 
-Wiki:
+В папке reports хранятся файлы для отчетности.
 
-https://github.com/moevm/nosql2h21-university/wiki
+## Запуск
+
+
+## Документация
+
+https://documenter.getpostman.com/view/15653942/UVC5ETDn

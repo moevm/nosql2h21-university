@@ -1,6 +1,7 @@
 package com.example.universitiesandapplicants.repository;
 
 import com.example.universitiesandapplicants.entity.Enrollee;
+import com.example.universitiesandapplicants.entity.University;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

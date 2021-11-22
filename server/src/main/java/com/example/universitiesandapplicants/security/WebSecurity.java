@@ -64,6 +64,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .antMatchers("/api/employees*")
                     .hasRole("EMPLOYEE")
+
+                // TODO потом поменять permitAll() на hasRole("EMPLOYEE")
+                .antMatchers("/api/employees/import")
+                .permitAll()
+                .antMatchers("/api/employees/export")
+                .permitAll()
+
                 .anyRequest().authenticated();
 
         http.requiresChannel()

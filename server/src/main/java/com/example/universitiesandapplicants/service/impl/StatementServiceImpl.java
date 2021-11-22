@@ -1,9 +1,11 @@
 package com.example.universitiesandapplicants.service.impl;
 
+import com.example.universitiesandapplicants.entity.Enrollee;
 import com.example.universitiesandapplicants.entity.Statement;
 import com.example.universitiesandapplicants.model.request.StatementRequestModel;
 import com.example.universitiesandapplicants.model.respose.EnrolleeResponseModel;
 import com.example.universitiesandapplicants.model.respose.StatementResponseModel;
+import com.example.universitiesandapplicants.repository.EnrolleeRepository;
 import com.example.universitiesandapplicants.repository.StatementRepository;
 import com.example.universitiesandapplicants.service.StatementService;
 import org.modelmapper.ModelMapper;

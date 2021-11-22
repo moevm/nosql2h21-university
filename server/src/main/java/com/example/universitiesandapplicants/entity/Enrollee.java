@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Document(collection = "enrollees")
-public class Enrollee {
+public class Enrollee implements User {
 
     @Id
     private String id;
@@ -51,5 +51,10 @@ public class Enrollee {
             return;
         }
         sumOfEgeResults = egeResults.stream().map(EGEresults::getScore).reduce(0, Integer::sum);
+    }
+
+    @Override
+    public String getRole() {
+        return "ENROLLEE";
     }
 }

@@ -1,0 +1,588 @@
+{
+  "employees": [
+    {
+      "id": "f8086089-bcb6-44f0-aad6-f77048d3afad",
+      "email": "sosiPisos5@mail.ru",
+      "firstName": "Владислав",
+      "lastName": "Шишк",
+      "patronymic": "Владимирович",
+      "password": "$2a$10$SOqx38PB8o.HkRoEunREX.Bd1SPQmtesrbioMN7IrD8FdYZ2Qnjuy",
+      "DOB": "Feb 21, 1986, 4:35:29 PM",
+      "universityId": "ee07c306-dcf4-4f56-a850-65f32565a863"
+    },
+    {
+      "id": "140250d5-5cb3-4660-b14e-d6c1ebc5b6d8",
+      "email": "sosiPisos6@mail.ru",
+      "firstName": "Анатолий",
+      "lastName": "Шишкин",
+      "patronymic": "Владимирович",
+      "password": "$2a$10$h8pejeJy5qvqxjBBr4MWJeVmgvW2KJyKj2b4.XfpnxdqKc6gwyJkO",
+      "DOB": "Aug 13, 2006, 4:35:32 PM",
+      "universityId": "ee07c306-dcf4-4f56-a850-65f32565a863"
+    },
+    {
+      "id": "d09c72b1-c7a3-47b8-bec2-cef692debe2a",
+      "email": "someNick7@mail.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$J5dUkZwEXsMUgKN5i2.kruqOSy5pYdv.i8D1HcEjOUav2eqt/oQFG",
+      "DOB": "Nov 10, 1990, 2:52:55 PM",
+      "universityId": "ee07c306-dcf4-4f56-a850-65f32565a863"
+    },
+    {
+      "id": "71a30cd6-c044-4613-b6c9-251cc56aadb6",
+      "email": "pixel8@gmail.com",
+      "firstName": "Анатолий",
+      "lastName": "Колмыков",
+      "patronymic": "Денисович",
+      "password": "$2a$10$UZcJ97BvOE/3cNuKgKM8JudmwE3nG7ILK7zV2m0XkX0Q37UHrnLOm",
+      "DOB": "Apr 21, 1961, 9:12:58 PM",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "0e7c4c8b-ec48-4172-96b5-63df8a0e4c7e",
+      "email": "lolkekcheburek9@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$zaxTr0vp4Woe8mbqEDPcdOeh.4lVhNFLVRoe33iVJphh4h947aMPy",
+      "DOB": "Sep 21, 1957, 12:49:30 AM",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "0a3b95f3-ce63-4cf6-803e-828dfd70f1dd",
+      "email": "sosiPisos10@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$7P7M.ARyYCqESTpbwGDaZ.x7lw.iXITpPE6Q0gTJWeS5ZdcXrgKzO",
+      "DOB": "Jun 28, 1977, 11:49:08 AM",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "a8bfb394-5a56-4e14-843f-bec58e9a9ba6",
+      "email": "lolkekcheburek11@gmail.com",
+      "firstName": "Илья",
+      "lastName": "Шишкин",
+      "patronymic": "Викторович",
+      "password": "$2a$10$m4OfpQUhDyZBMzJRy9qJTegBkAm8vWGEP1.uMX4TnDytgqU3aXlIi",
+      "DOB": "Jun 11, 1951, 8:24:41 AM",
+      "universityId": "60e40ef5-fad7-4ef5-84e7-ff376a8c75d9"
+    },
+    {
+      "id": "4f95f980-ecf6-4722-b2c3-883dd83f1fc5",
+      "email": "pixel12@mail.ru",
+      "firstName": "Илья",
+      "lastName": "Степанов",
+      "patronymic": "Владимирович",
+      "password": "$2a$10$zRDPn6K7pifttaD7esM2xOjbqZz2YUDx9SQGzwJcVjMvw8b6sw6vG",
+      "DOB": "Nov 6, 1943, 6:19:58 AM",
+      "universityId": "60e40ef5-fad7-4ef5-84e7-ff376a8c75d9"
+    },
+    {
+      "id": "7efd0e00-5678-4ec9-bf39-629912ae5f5b",
+      "email": "sosiPisos13@yandex.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$UVxd6N5en.azRW.dAA2nL.QfmKbGX.KoOWQrvJ6cKfSod.VW3sYoi",
+      "DOB": "Jun 12, 1981, 10:34:01 AM",
+      "universityId": "60e40ef5-fad7-4ef5-84e7-ff376a8c75d9"
+    },
+    {
+      "id": "4fcaf219-4bea-4da6-8172-bad6aaf788ed",
+      "email": "lolkekcheburek14@mail.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$HyxKtjF1bZveH/2pjMCSZeitY0R/qw8XbTwzqCajzSsvWo/SCRRwi",
+      "DOB": "Apr 1, 1959, 8:09:26 AM",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    },
+    {
+      "id": "93487802-3624-4e18-9bba-c8afb92593e5",
+      "email": "sosiPisos15@mail.ru",
+      "firstName": "Владислав",
+      "lastName": "Колмыков",
+      "patronymic": "Викторович",
+      "password": "$2a$10$GefXiwCZD1O2WvtVVGSO4.JkLwtV/3SGlnVmqgx3YNSrNL3AxCkGi",
+      "DOB": "Oct 27, 1964, 1:15:09 PM",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    },
+    {
+      "id": "5e28915d-6703-4c27-b93b-3ebd3efb3fa9",
+      "email": "sosiPisos16@yandex.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$RH.8kvYeBPL/huhNHKXOFujK7dq7A.9kQbtJu9KV5gD4bAueFNxJW",
+      "DOB": "Nov 3, 1999, 2:46:29 AM",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    },
+    {
+      "id": "ff1950f4-26ea-4cb0-971e-04559132b8b3",
+      "email": "lolkekcheburek17@mail.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$cdPOYMLKAxQUyPwdD2w7Lu1UHzxomq.RRqOKLfZLGegy5u7SpdxQq",
+      "DOB": "Mar 24, 1961, 10:15:46 PM",
+      "universityId": "33e8b00f-2d00-434c-8587-76ed72f90ab4"
+    },
+    {
+      "id": "9baf7bba-19f1-420a-9dc9-7d03aba5588f",
+      "email": "pixel18@gmail.com",
+      "firstName": "Анатолий",
+      "lastName": "Колмыков",
+      "patronymic": "Владимирович",
+      "password": "$2a$10$S072FhK4Sk3RzTXETbpojeBBQ2rat6xR3L/nWPeBfVOCRfJzn/VSC",
+      "DOB": "Jul 16, 1996, 7:22:37 PM",
+      "universityId": "33e8b00f-2d00-434c-8587-76ed72f90ab4"
+    },
+    {
+      "id": "c0b4e75f-c262-497b-ba6a-c423886012e4",
+      "email": "someNick19@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$dsnEjwM/nXe0bKUyHa6lq.uGve08upFfutoqgA39kfihx/Flm0fmK",
+      "DOB": "Oct 26, 1958, 4:16:41 PM",
+      "universityId": "33e8b00f-2d00-434c-8587-76ed72f90ab4"
+    }
+  ],
+  "enrollees": [
+    {
+      "id": "559b999b-1390-437c-b458-177013d62f5b",
+      "email": "someNick20@mail.ru",
+      "firstName": "Анатолий",
+      "lastName": "Степанов",
+      "patronymic": "Викторович",
+      "password": "$2a$10$Kgy2rELiyLJI4BIA3EdUz.NCjfdJHS4Ps8qGVm4QA0je8Y/SvJgEW",
+      "DOB": "Mar 19, 1961, 8:56:43 PM",
+      "school": "Школа №21",
+      "city": "Санкт-Петербург",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 11
+        },
+        {
+          "subject": "Математика",
+          "score": 61
+        }
+      ],
+      "individualAchievements": [
+        "Золотая медаль"
+      ],
+      "sumOfEgeResults": 72,
+      "isStatementExists": false
+    },
+    {
+      "id": "5ad8ad55-338c-42d0-adbf-8a6dd88a8fb9",
+      "email": "lolkekcheburek21@yandex.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$xBUdi6pWEOvUWBjUbHIg9.5TrBVJ4FRVeHL3F79YvDN9zDxAfy0XG",
+      "DOB": "Sep 16, 1997, 7:27:16 AM",
+      "school": "Школа №17",
+      "city": "Волгоград",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 7
+        },
+        {
+          "subject": "Математика",
+          "score": 81
+        }
+      ],
+      "individualAchievements": [
+        "Просто хороший человек"
+      ],
+      "sumOfEgeResults": 88,
+      "isStatementExists": false
+    },
+    {
+      "id": "70e4de84-b361-41d0-aafb-016b5b8880dd",
+      "email": "pixel22@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$v/UYe1DEmNVor3ULzTR3nuinS9vbasjrf0aCsaotEuFt.76FmD1fG",
+      "DOB": "Jul 20, 1981, 8:43:56 PM",
+      "school": "Лицей №98",
+      "city": "Волгоград",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 18
+        },
+        {
+          "subject": "Математика",
+          "score": 38
+        }
+      ],
+      "individualAchievements": [
+        "ГТО",
+        "Просто хороший человек"
+      ],
+      "sumOfEgeResults": 56,
+      "isStatementExists": false
+    },
+    {
+      "id": "98ba8083-6e09-4c23-9873-d5806ffc89af",
+      "email": "lolkekcheburek23@yandex.ru",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$Y8x106ESEZOyv9GFFobUrefn.ikWNoSGn5P2R4MmCqRqj.28V1PKi",
+      "DOB": "Jan 8, 1981, 12:10:53 PM",
+      "school": "Лицей №100",
+      "city": "Волгоград",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 70
+        },
+        {
+          "subject": "Математика",
+          "score": 73
+        }
+      ],
+      "individualAchievements": [
+        "ГТО",
+        "Золотая медаль"
+      ],
+      "sumOfEgeResults": 143,
+      "isStatementExists": false
+    },
+    {
+      "id": "6a4b93d6-ea86-421a-95ba-2f734edb1e97",
+      "email": "sosiPisos24@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$hRAtiyEWvU0DzHIHb6OE3u2G53CmLo80fOk15jSYU9e3yH013KH4W",
+      "DOB": "Dec 24, 1949, 5:43:56 AM",
+      "school": "Гимназия №65",
+      "city": "Волгоград",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 26
+        },
+        {
+          "subject": "Математика",
+          "score": 3
+        }
+      ],
+      "individualAchievements": [
+        "Золотая медаль"
+      ],
+      "sumOfEgeResults": 29,
+      "isStatementExists": false
+    },
+    {
+      "id": "9212ea3b-102c-49a2-a8f9-b9d7e497d578",
+      "email": "someNick25@gmail.com",
+      "firstName": "Илья",
+      "lastName": "Степанов",
+      "patronymic": "Денисович",
+      "password": "$2a$10$fENN1cay4cIuvD1NvU4X0ORpaJxWd8rEAfVvbBbF.Xr76zDbMKyNG",
+      "DOB": "Mar 11, 1981, 2:16:04 PM",
+      "school": "Лицей №48",
+      "city": "Санкт-Петербург",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 12
+        },
+        {
+          "subject": "Математика",
+          "score": 55
+        }
+      ],
+      "individualAchievements": [
+        "Золотая медаль"
+      ],
+      "sumOfEgeResults": 67,
+      "isStatementExists": false
+    },
+    {
+      "id": "c8f88ea9-dfd9-4dca-8db9-360d9fdbb11b",
+      "email": "someNick26@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$xNKlOsegbMkUl6aug1FKsOJg0CkADCYgQeUq5/2vEHFrWoysOiD.u",
+      "DOB": "Mar 21, 1973, 5:58:48 PM",
+      "school": "Лицей №80",
+      "city": "Волгоград",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 12
+        },
+        {
+          "subject": "Математика",
+          "score": 1
+        }
+      ],
+      "individualAchievements": [
+        "Просто хороший человек"
+      ],
+      "sumOfEgeResults": 13,
+      "isStatementExists": false
+    },
+    {
+      "id": "cc8b2779-d07e-4367-9c38-207af5dea7de",
+      "email": "lolkekcheburek27@mail.ru",
+      "firstName": "Илья",
+      "lastName": "Шишкин",
+      "patronymic": "Викторович",
+      "password": "$2a$10$0BJa5bcr5tz7UztpoxauI.fwn0Tyo8oqUftsTBm9QdgWyk4GWUyJS",
+      "DOB": "Jan 14, 1991, 3:40:30 AM",
+      "school": "Школа №24",
+      "city": "Санкт-Петербург",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 75
+        },
+        {
+          "subject": "Математика",
+          "score": 27
+        }
+      ],
+      "individualAchievements": [],
+      "sumOfEgeResults": 102,
+      "isStatementExists": false
+    },
+    {
+      "id": "5cbb89c1-f417-4b2d-b217-aa8de9605600",
+      "email": "someNick28@gmail.com",
+      "firstName": "Анатолий",
+      "lastName": "Степанов",
+      "patronymic": "Владимирович",
+      "password": "$2a$10$ZiVL.PnPjnttlhf7IX6AM.pvY3xXxmqGG9ZQX3Qd/w7pcTjG4BVmW",
+      "DOB": "Jan 23, 1949, 1:39:20 AM",
+      "school": "Гимназия №7",
+      "city": "Улан-удэ",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 96
+        },
+        {
+          "subject": "Математика",
+          "score": 10
+        }
+      ],
+      "individualAchievements": [
+        "Золотая медаль",
+        "Просто хороший человек"
+      ],
+      "sumOfEgeResults": 106,
+      "isStatementExists": false
+    },
+    {
+      "id": "87881122-4a4b-4dbb-b3ac-f5c51f238350",
+      "email": "someNick29@gmail.com",
+      "firstName": "Женское имя",
+      "lastName": "Женская фамилия",
+      "patronymic": "Женское отчество",
+      "password": "$2a$10$Gngr41xSNYkyg3DS7Os5LeVECeu7Lpkh3b/VKNV/2kj8LZJ4GQAda",
+      "DOB": "Apr 13, 1966, 12:13:57 AM",
+      "school": "Лицей №68",
+      "city": "Москва",
+      "egeResults": [
+        {
+          "subject": "Русский язык",
+          "score": 50
+        },
+        {
+          "subject": "Математика",
+          "score": 26
+        }
+      ],
+      "individualAchievements": [],
+      "sumOfEgeResults": 76,
+      "isStatementExists": false
+    }
+  ],
+  "statements": [
+    {
+      "id": "6f90926b-4340-4fcb-9038-2f6235b44fce",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "2.2 Ставки на спорт!!! 1Хбет",
+      "enrolleeId": "559b999b-1390-437c-b458-177013d62f5b",
+      "universityId": "ee07c306-dcf4-4f56-a850-65f32565a863"
+    },
+    {
+      "id": "846dbb20-fbe2-471f-92e2-e39ef053a94c",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "2.2 Ставки на спорт!!! 1Хбет",
+      "enrolleeId": "559b999b-1390-437c-b458-177013d62f5b",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    },
+    {
+      "id": "c0ba897e-01de-4748-8b34-79c2af39a9d7",
+      "formOfEducation": "Очная форма обучения",
+      "directionOfStudy": "1.2 Программная инженерия",
+      "enrolleeId": "70e4de84-b361-41d0-aafb-016b5b8880dd",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    },
+    {
+      "id": "2e9e9db1-689e-401e-a152-afef40562b22",
+      "formOfEducation": "Очная форма обучения",
+      "directionOfStudy": "1.1 Прикладная Метематика и Информатика",
+      "enrolleeId": "98ba8083-6e09-4c23-9873-d5806ffc89af",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "9fb78734-8728-440f-9ba2-9c2092da17f6",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "1.1 Прикладная Метематика и Информатика",
+      "enrolleeId": "98ba8083-6e09-4c23-9873-d5806ffc89af",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    },
+    {
+      "id": "6738d69a-8511-41df-be17-95866ae96df7",
+      "formOfEducation": "Очная форма обучения",
+      "directionOfStudy": "2.3 Шиза вернулась",
+      "enrolleeId": "6a4b93d6-ea86-421a-95ba-2f734edb1e97",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "7f52ed78-34cf-4bca-b663-511cf4498c0e",
+      "formOfEducation": "Очная форма обучения",
+      "directionOfStudy": "2.1 Обучаем всему, что не нужно",
+      "enrolleeId": "9212ea3b-102c-49a2-a8f9-b9d7e497d578",
+      "universityId": "60e40ef5-fad7-4ef5-84e7-ff376a8c75d9"
+    },
+    {
+      "id": "d1f5082b-c2c9-47b6-a101-0294a045f628",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "1.1 Прикладная Метематика и Информатика",
+      "enrolleeId": "9212ea3b-102c-49a2-a8f9-b9d7e497d578",
+      "universityId": "33e8b00f-2d00-434c-8587-76ed72f90ab4"
+    },
+    {
+      "id": "2c20802b-195b-4f74-a8ce-4c436b5bc177",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "2.3 Шиза вернулась",
+      "enrolleeId": "c8f88ea9-dfd9-4dca-8db9-360d9fdbb11b",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "13b5c216-6c24-4fa3-bd64-42d6eeb03a1b",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "2.2 Ставки на спорт!!! 1Хбет",
+      "enrolleeId": "5cbb89c1-f417-4b2d-b217-aa8de9605600",
+      "universityId": "ee07c306-dcf4-4f56-a850-65f32565a863"
+    },
+    {
+      "id": "d822970a-30a9-4989-b0b5-8dd67c433313",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "1.1 Прикладная Метематика и Информатика",
+      "enrolleeId": "5cbb89c1-f417-4b2d-b217-aa8de9605600",
+      "universityId": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe"
+    },
+    {
+      "id": "e60925af-1a2b-4d0f-91f9-50685b113f7b",
+      "formOfEducation": "Заочная форма обучения",
+      "directionOfStudy": "1.1 Прикладная Метематика и Информатика",
+      "enrolleeId": "87881122-4a4b-4dbb-b3ac-f5c51f238350",
+      "universityId": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf"
+    }
+  ],
+  "universities": [
+    {
+      "id": "6c83ae28-5d6d-4f1d-9d05-cf80736f63bf",
+      "name": "university_3",
+      "city": "Улан-удэ",
+      "email": "pixel3@gmail.com",
+      "phone": "+7-903-751-07-35",
+      "description": "description university_3",
+      "faculties": [
+        "6. Факультет Похоже Шиза Прогрессирует"
+      ],
+      "directionsOfStudy": [
+        "1.2 Программная инженерия",
+        "1.1 Прикладная Метематика и Информатика",
+        "2.2 Ставки на спорт!!! 1Хбет",
+        "2.3 Шиза вернулась"
+      ]
+    },
+    {
+      "id": "ee07c306-dcf4-4f56-a850-65f32565a863",
+      "name": "university_0",
+      "city": "Санкт-Петербург",
+      "email": "sosiPisos0@yandex.ru",
+      "phone": "+7-907-662-84-48",
+      "description": "description university_0",
+      "faculties": [
+        "1. Факультет Мемологии",
+        "3. Факультет Элементарных Моделей"
+      ],
+      "directionsOfStudy": [
+        "2.2 Ставки на спорт!!! 1Хбет"
+      ]
+    },
+    {
+      "id": "2918fb2c-8861-47bd-99e0-1bbcb6a274fe",
+      "name": "university_1",
+      "city": "Улан-удэ",
+      "email": "lolkekcheburek1@gmail.com",
+      "phone": "+7-934-045-67-55",
+      "description": "description university_1",
+      "faculties": [
+        "5. Факультет Зачем Я Это Все Пишу",
+        "6. Факультет Похоже Шиза Прогрессирует"
+      ],
+      "directionsOfStudy": [
+        "2.3 Шиза вернулась",
+        "1.2 Программная инженерия",
+        "1.1 Прикладная Метематика и Информатика",
+        "2.2 Ставки на спорт!!! 1Хбет"
+      ]
+    },
+    {
+      "id": "33e8b00f-2d00-434c-8587-76ed72f90ab4",
+      "name": "university_4",
+      "city": "Улан-удэ",
+      "email": "sosiPisos4@yandex.ru",
+      "phone": "+7-916-242-76-74",
+      "description": "description university_4",
+      "faculties": [
+        "5. Факультет Зачем Я Это Все Пишу",
+        "1. Факультет Мемологии"
+      ],
+      "directionsOfStudy": [
+        "1.1 Прикладная Метематика и Информатика",
+        "2.3 Шиза вернулась"
+      ]
+    },
+    {
+      "id": "60e40ef5-fad7-4ef5-84e7-ff376a8c75d9",
+      "name": "university_2",
+      "city": "Новомосковск",
+      "email": "pixel2@yandex.ru",
+      "phone": "+7-966-034-81-08",
+      "description": "description university_2",
+      "faculties": [
+        "5. Факультет Зачем Я Это Все Пишу",
+        "6. Факультет Похоже Шиза Прогрессирует",
+        "3. Факультет Элементарных Моделей",
+        "1. Факультет Мемологии"
+      ],
+      "directionsOfStudy": [
+        "2.1 Обучаем всему, что не нужно",
+        "2.2 Ставки на спорт!!! 1Хбет",
+        "2.3 Шиза вернулась"
+      ]
+    }
+  ]
+}

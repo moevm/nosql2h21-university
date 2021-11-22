@@ -1,10 +1,7 @@
 package com.example.universitiesandapplicants.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,9 +11,10 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@AllArgsConstructor
+@Builder
 @Document(collection = "employees")
-public class Employee {
+public class Employee implements User {
 
     @Id
     private String id;
@@ -44,5 +42,10 @@ public class Employee {
         this.password = password;
         this.DOB = DOB;
         this.universityId = universityId;
+    }
+
+    @Override
+    public String getRole() {
+        return "EMPLOYEE";
     }
 }
