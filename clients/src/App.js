@@ -3,6 +3,7 @@ import MainUniversity from "./components/pages/MainUniversity";
 import MyUniversity from "./components/pages/MyUniversity";
 import Login from "./components/pages/Login";
 import StudentRegister from "./components/pages/StudentRegister";
+import WorkerRegister from "./components/pages/WorkerRegister";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="university/my" element={<MyUniversity/>}/>
                 <Route path="university/" element={<MainUniversity/>}/>
                 <Route path="student/register" element={<StudentRegister/>}/>
+                <Route path="worker/register" element={<WorkerRegister/>}/>
             </Routes>
         </div>
       </BrowserRouter>

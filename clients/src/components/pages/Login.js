@@ -9,7 +9,7 @@ const links = [
     },
     {
         name: "Регистрация (Приемная комиссия)",
-        href: "#"
+        href: "/worker/register"
     }
 ]
 

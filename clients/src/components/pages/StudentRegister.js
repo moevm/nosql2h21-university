@@ -68,6 +68,11 @@ const RegistrationForm = () => {
         setRegisterInfo(newRegisterInfo)
     }
 
+    const register = () => {
+        console.log(registerInfo)
+        //TODO sent register info
+    }
+
     return (
         <Form>
             <Row>
