@@ -1,10 +1,12 @@
+import {getCookie} from "./cookies";
+
 const clientRequest = (
     path='',
     method='GET',
     body= null,
     headers={
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Accept': '*/*',
+        'Content-Type': 'application/json',
     },
     url= 'http://localhost:8080/api',
 ) => {
@@ -12,7 +14,7 @@ const clientRequest = (
         method: method,
         headers: {
             ...headers,
-            'authorization': `${localStorage.getItem("token")}`
+            'authorization': `${getCookie("token")}`
         }
     }
 

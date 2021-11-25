@@ -4,8 +4,24 @@ import MyUniversity from "./components/pages/MyUniversity";
 import Login from "./components/pages/Login";
 import StudentRegister from "./components/pages/StudentRegister";
 import WorkerRegister from "./components/pages/WorkerRegister";
+import {bindActionCreators} from "redux";
+import {setUserAction} from "./store/actionCreators/actionCreators";
+import {useEffect} from "react";
+import {getCookie} from "./utils/cookies";
+import {tokenToPayload} from "./utils/token";
+import {connect} from "react-redux";
+import StudentUniversities from "./components/pages/StudentUniversities";
 
-function App() {
+function App(props) {
+
+    useEffect(() => {
+        const token = getCookie('token')
+        if (token) {
+            const payload = tokenToPayload(token)
+            props.setUserDispatch(payload)
+        }
+    }, [])
+
   return (
       <BrowserRouter>
         <div className="App">
@@ -14,6 +30,7 @@ function App() {
                 <Route path="university/my" element={<MyUniversity/>}/>
                 <Route path="university/" element={<MainUniversity/>}/>
                 <Route path="student/register" element={<StudentRegister/>}/>
+                <Route path="student/universities" element={<StudentUniversities/>}/>
                 <Route path="worker/register" element={<WorkerRegister/>}/>
             </Routes>
         </div>
@@ -21,4 +38,17 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+            setUserDispatch: setUserAction
+        },
+        dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

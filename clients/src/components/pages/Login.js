@@ -1,6 +1,13 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
 import CustomNavbar from "../sub-components/navbar/CustomNavbar";
 import {useState} from "react";
+import {loginRequest} from "../../utils/requests";
+import {setCookie} from "../../utils/cookies";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {setUserAction} from "../../store/actionCreators/actionCreators";
+import {tokenToPayload} from "../../utils/token";
+import {useHistory, useNavigate} from "react-router-dom";
 
 const links = [
     {
@@ -15,7 +22,7 @@ const links = [
 
 const LoginForm = (props) => {
     const [loginInfo, setLoginInfo] = useState({
-        login: "",
+        email: "",
         password: ""
     });
 
@@ -24,7 +31,7 @@ const LoginForm = (props) => {
             <Form.Control className="form-rounded mt-5" placeholder="Логин" onChange={e => {
                 setLoginInfo({
                     ...loginInfo,
-                    login: e.target.value
+                    email: e.target.value
                 })
             }}/>
             <Form.Control type="password" className="form-rounded mt-3" placeholder="Пароль" onChange={e => {
@@ -38,11 +45,30 @@ const LoginForm = (props) => {
     )
 }
 
-const Login = () => {
+const Login = (props) => {
+
+    const navigate = useNavigate()
+
+    const processToken = (token) => {
+        const payload = tokenToPayload(token)
+        props.setUserDispatch(payload)
+        setCookie('token', token)
+        if (payload.role === 'EMPLOYEE') {
+            navigate('/university/')
+        } else if (payload.role === 'ENROLLEE') {
+            navigate('/student/universities/')
+        }
+    }
 
     const submit = (loginInfo) => {
-        //TODO
-        console.log(loginInfo)
+        loginRequest(loginInfo)
+            .then(response => {
+                if (response.status === 200) {
+                    response.text()
+                        .then(token => processToken(token))
+                }
+            })
+
     }
 
     return (
@@ -59,4 +85,17 @@ const Login = () => {
     )
 }
 
-export default Login
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+            setUserDispatch: setUserAction
+        },
+        dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
