@@ -5,10 +5,9 @@ const clientRequest = (
     method='GET',
     body= null,
     headers={
-        'Accept': '*/*',
-        'Content-Type': 'application/json',
+
     },
-    url= 'http://localhost:8080/api',
+    url= `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}/api`,
 ) => {
     const request = {
         method: method,
@@ -18,8 +17,14 @@ const clientRequest = (
         }
     }
 
-    if (method !== 'GET' && method !== 'DELETE') {
+    if (method !== 'GET' && method !== 'DELETE' && body.constructor.name !== 'FormData') {
         request.body = JSON.stringify(body)
+        request.headers = {
+            ...headers,
+            'Content-Type': 'application/json'
+        }
+    } else if (body && body.constructor && body.constructor.name === 'FormData') {
+        request.body = body
     }
 
     return fetch(url + path, request)

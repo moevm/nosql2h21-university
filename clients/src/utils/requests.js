@@ -28,5 +28,11 @@ const getUniversitiesRequest = () => {
     return clientRequest('/universities')
 }
 
+const importFileRequest = (file) => {
+    const body = new FormData()
+    body.append("file", file, 'file')
+    return clientRequest('/employees/import', 'POST', body)
+}
+
 export {getStudentsByFilterRequest, getAllStudentsRequest, getStudentsForUniversityRequest,
-    getStudentsForUniversityByFilterRequest, loginRequest, filterUniversitiesRequest, getUniversitiesRequest}
+    getStudentsForUniversityByFilterRequest, loginRequest, filterUniversitiesRequest, getUniversitiesRequest, importFileRequest}

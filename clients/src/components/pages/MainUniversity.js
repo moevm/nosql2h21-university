@@ -58,7 +58,7 @@ const links = [
     },
     {
         name: "Настройки",
-        href: "#"
+        href: "/employee/settings"
     },
 ]
 

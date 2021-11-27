@@ -28,7 +28,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    container_name: nosql-server
+    container_name: server
     restart: on-failure
     depends_on:
       - mongodb
@@ -45,12 +45,17 @@ services:
       - SPRING_DATA_MONGODB_DATABASE=universitiesnapplicants
 
   client:
+    container_name: client
+    ports:
+        - "3000:3000"
     stdin_open: true
+    depends_on:
+        - server
     environment:
       - CHOKIDAR_USEPOLLING=true
-    build:
-      dockerfile: Dockerfile
-      context: ./client
+      - REACT_APP_SERVER_PORT=8080
+    build: ./client
+    command: npm start
 
 volumes:
   data: { }

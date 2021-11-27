@@ -15,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
@@ -48,30 +50,33 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .antMatchers("/api/auth/**")
-                    .permitAll()
-                .antMatchers(HttpMethod.POST, "/api/employees")
-                    .permitAll()
-                .antMatchers(HttpMethod.POST, "/api/universities")
-                    .permitAll()
-                .antMatchers(HttpMethod.POST, "/api/enrollees")
-                    .permitAll()
-                .antMatchers(HttpMethod.POST, "/api/statements")
-                    .permitAll()
-                .antMatchers("/api/employees*")
-                    .hasRole("EMPLOYEE")
-
-                // TODO потом поменять permitAll() на hasRole("EMPLOYEE")
-                .antMatchers("/api/employees/import")
-                .permitAll()
-                .antMatchers("/api/employees/export")
-                .permitAll()
-
-                .anyRequest().authenticated();
+                .anyRequest()
+                .permitAll();
+//                .antMatchers("/api/auth/**")
+//                    .permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/employees")
+//                    .permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/universities")
+//                    .permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/enrollees")
+//                    .permitAll()
+//                .antMatchers(HttpMethod.POST, "/api/statements")
+//                    .permitAll()
+//                .antMatchers("/api/employees*")
+//                    .hasRole("EMPLOYEE")
+//
+//                // TODO потом поменять permitAll() на hasRole("EMPLOYEE")
+//                .antMatchers("/api/employees/import")
+//                .permitAll()
+//                .antMatchers("/api/employees/export")
+//                .permitAll()
+//
+//                .anyRequest().authenticated();
 
         http.requiresChannel()
                 .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
@@ -79,4 +84,5 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
 }

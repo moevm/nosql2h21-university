@@ -11,6 +11,7 @@ import {getCookie} from "./utils/cookies";
 import {tokenToPayload} from "./utils/token";
 import {connect} from "react-redux";
 import StudentUniversities from "./components/pages/StudentUniversities";
+import EmployeeSettingsPage from "./components/pages/EmployeeSettingsPage";
 
 function App(props) {
 
@@ -32,6 +33,7 @@ function App(props) {
                 <Route path="student/register" element={<StudentRegister/>}/>
                 <Route path="student/universities" element={<StudentUniversities/>}/>
                 <Route path="worker/register" element={<WorkerRegister/>}/>
+                <Route path="employee/settings" element={<EmployeeSettingsPage/>}/>
             </Routes>
         </div>
       </BrowserRouter>
