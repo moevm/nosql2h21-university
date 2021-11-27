@@ -2,6 +2,8 @@ import CustomNavbar from "../sub-components/navbar/CustomNavbar";
 import {Button, Col, Form, Image, InputGroup, Row} from "react-bootstrap";
 import {useState} from "react";
 import "../../css/image.css"
+import {registerStudentRequest} from "../../utils/requests";
+import {useNavigate} from "react-router-dom";
 
 const links = [
     {
@@ -22,13 +24,15 @@ const RegistrationForm = () => {
         password: "",
 
         email: "",
-        dob: null,
+        DOB: null,
         school: "",
         city: "",
 
         egeResults: [],
         individualAchievements: []
     })
+
+    const navigate = useNavigate()
 
     const onImageUpload = (imageFile) => {
         console.log(imageFile)//TODO: sent file to server -> get name ->  get url -> update register info
@@ -37,7 +41,7 @@ const RegistrationForm = () => {
     const addEgeResult = () => {
         setRegisterInfo({
             ...registerInfo,
-            egeResults: [...registerInfo.egeResults, {subject: "", result: 0}]
+            egeResults: [...registerInfo.egeResults, {subject: "", score: 0}]
         })
     }
 
@@ -64,7 +68,7 @@ const RegistrationForm = () => {
             ...registerInfo
         }
 
-        newRegisterInfo.egeResults[index].result = value
+        newRegisterInfo.egeResults[index].score = value
         setRegisterInfo(newRegisterInfo)
     }
 
@@ -127,7 +131,7 @@ const RegistrationForm = () => {
                             <Form.Control type="date" placeholder="Дата рождения" onChange={e => {
                                 setRegisterInfo({
                                     ...registerInfo,
-                                    dob: e.target.value
+                                    DOB: e.target.value
                                 })
                             }}/>
                         </Col>
@@ -189,7 +193,15 @@ const RegistrationForm = () => {
                             ))}
                         </Col>
                     </Row>
-                    <Row className="justify-content-center mt-5"><Button variant="primary" className="w-50">Зарегистрироваться</Button></Row>
+                    <Row className="justify-content-center mt-5"><Button variant="primary" className="w-50" onClick={() => {
+                        console.log(registerInfo)
+                        registerStudentRequest(registerInfo)
+                            .then(response => {
+                                if (response.status === 200) {
+                                    navigate('/login')
+                                }
+                            })
+                    }}>Зарегистрироваться</Button></Row>
 
                 </Col>
                 <Col className="col-3"></Col>

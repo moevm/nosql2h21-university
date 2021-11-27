@@ -34,5 +34,11 @@ const importFileRequest = (file) => {
     return clientRequest('/employees/import', 'POST', body)
 }
 
+const registerStudentRequest = (registerInfo) => {
+    return clientRequest('/enrollees/', 'POST', registerInfo)
+}
+
 export {getStudentsByFilterRequest, getAllStudentsRequest, getStudentsForUniversityRequest,
-    getStudentsForUniversityByFilterRequest, loginRequest, filterUniversitiesRequest, getUniversitiesRequest, importFileRequest}
+    getStudentsForUniversityByFilterRequest, loginRequest, filterUniversitiesRequest, getUniversitiesRequest, importFileRequest,
+    registerStudentRequest
+}
