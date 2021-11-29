@@ -46,7 +46,7 @@ public class Enrollee implements User {
     private Boolean isStatementExists = false;
 
     public void countSumOfEgeResults() {
-        if (egeResults.size() == 0) {
+        if (egeResults == null || egeResults.size() == 0) {
             sumOfEgeResults = 0;
             return;
         }
