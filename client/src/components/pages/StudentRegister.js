@@ -1,5 +1,5 @@
 import CustomNavbar from "../sub-components/navbar/CustomNavbar";
-import {Button, Col, Form, Image, InputGroup, Row} from "react-bootstrap";
+import {Button, Col, Form, Image, InputGroup, Row, Toast} from "react-bootstrap";
 import {useState} from "react";
 import "../../css/image.css"
 import {registerStudentRequest} from "../../utils/requests";
@@ -31,6 +31,9 @@ const RegistrationForm = () => {
         egeResults: [],
         individualAchievements: []
     })
+
+    const [showAlert, setShowAlert] = useState(false)
+    const [alertMessage, setAlertMessage] = useState("")
 
     const navigate = useNavigate()
 
@@ -195,16 +198,38 @@ const RegistrationForm = () => {
                     </Row>
                     <Row className="justify-content-center mt-5"><Button variant="primary" className="w-50" onClick={() => {
                         console.log(registerInfo)
+                        setShowAlert(false)
                         registerStudentRequest(registerInfo)
                             .then(response => {
                                 if (response.status === 200) {
                                     navigate('/login')
+                                } else if (response.status  === 400) {
+                                    response.text()
+                                        .then(text => {
+                                            setAlertMessage(text)
+                                            setShowAlert(true)
+                                        })
                                 }
                             })
                     }}>Зарегистрироваться</Button></Row>
 
                 </Col>
-                <Col className="col-3"></Col>
+                <Col className="col-3">
+                    <Toast bg={"warning"} show={showAlert} onClose={() => {
+                        setShowAlert(false)
+                    }}>
+                        <Toast.Header>
+                            <img
+                                src="holder.js/20x20?text=%20"
+                                className="rounded me-2"
+                                alt=""
+                            />
+                            <strong className="me-auto">Ошибка</strong>
+                            <small>11 mins ago</small>
+                        </Toast.Header>
+                        <Toast.Body>{alertMessage}</Toast.Body>
+                    </Toast>
+                </Col>
             </Row>
         </Form>
     )

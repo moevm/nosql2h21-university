@@ -48,14 +48,14 @@ const StudentTable = (props) => {
 }
 
 const links = [
-    {
-        name: "Статистика",
-        href: "#"
-    },
-    {
-        name: "Абитуриенты, подавшие заявление в ваш вуз",
-        href: "/university/my"
-    },
+    // {
+    //     name: "Статистика",
+    //     href: "#"
+    // },
+    // {
+    //     name: "Абитуриенты, подавшие заявление в ваш вуз",
+    //     href: "/university/my"
+    // },
     {
         name: "Настройки",
         href: "/employee/settings"

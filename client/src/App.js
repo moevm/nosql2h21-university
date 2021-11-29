@@ -12,6 +12,7 @@ import {tokenToPayload} from "./utils/token";
 import {connect} from "react-redux";
 import StudentUniversities from "./components/pages/StudentUniversities";
 import EmployeeSettingsPage from "./components/pages/EmployeeSettingsPage";
+import Logout from "./components/pages/Logout";
 
 function App(props) {
 
@@ -34,6 +35,8 @@ function App(props) {
                 <Route path="student/universities" element={<StudentUniversities/>}/>
                 <Route path="worker/register" element={<WorkerRegister/>}/>
                 <Route path="employee/settings" element={<EmployeeSettingsPage/>}/>
+                <Route path="logout" element={<Logout/>}/>
+                <Route path="/" element={<Login/>}/>
             </Routes>
         </div>
       </BrowserRouter>

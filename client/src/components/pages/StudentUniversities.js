@@ -53,9 +53,14 @@ const UniversitiesForm = (props) => {
 }
 
 const links = [
+    // {
+    //     name: "Профиль",
+    //     href: "#"
+    // },
+
     {
-        name: "Профиль",
-        href: "#"
+        name: "Выйти",
+        href: "/login"
     }
 ]
 

@@ -129,7 +129,7 @@ const links = [
 const WorkerRegister = () => {
     return (
         <div>
-            <CustomNavbar title="Регистрация абитуриента" links={links}/>
+            <CustomNavbar title="Регистрация сотрудника ВУЗа" links={links}/>
             <RegistrationForm/>
         </div>
     )

@@ -10,7 +10,7 @@ const StudentFilter = (props) => {
         sumOfEgeResultsFrom: 0,
 
         city: "",
-        isStatementExists: false,
+        isStatementExists: null,
 
         agreement: false,
         formOfEducation: "",
@@ -84,6 +84,7 @@ const StudentFilter = (props) => {
                                             isStatementExists: e.target.value
                                         })
                                     }}>
+                                        <option value={''}>Не важно</option>
                                         <option value={false}>Нет</option>
                                         <option value={true}>Да</option>
                                     </Form.Select>
@@ -119,6 +120,7 @@ const StudentFilter = (props) => {
                                                 agreement: e.target.value
                                             })
                                         }}>
+                                            <option value={''}>Не важно</option>
                                             <option value={false}>Нет</option>
                                             <option value={true}>Да</option>
                                         </Form.Select>
