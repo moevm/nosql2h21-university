@@ -1,0 +1,1 @@
+[{"_id":{"$oid":"61a52e6b72bcf419968a52e0"},"name":"University1","city":"University1","email":"University1@email.com","phone":"phone","description":"descr","faculties":[],"directionsOfStudy":["first"],"_class":"com.example.universitiesandapplicants.entity.University"}]
