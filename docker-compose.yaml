@@ -7,11 +7,19 @@ services:
       - "27017:27017"
     volumes:
       - data:/data
+    command:
+      - mongod
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpass
-    command:
-      - mongod
+
+  mongo-seed:
+    build: ./mongo-seed
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_HOST=mongo
+      - MONGODB_PORT=27017
 
   mongo-express:
     image: mongo-express
